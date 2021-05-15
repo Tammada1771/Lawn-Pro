@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRV.LawnPro.Mobile.Views.MainPage">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1.2" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="Green" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Row 0 -->
+                <RowDefinition Height="Auto" />
+                <!-- Row 1 -->
+                <RowDefinition Height="10" />
+                <!-- Row 2 -->
+                <RowDefinition Height="Auto" />
+                <!-- Row 3 -->
+                <RowDefinition Height="20" />
+                <!-- Row 4 -->
+                <RowDefinition Height="Auto" />
+                <!-- Row 5 -->
+                <RowDefinition Height="20" />
+                <!-- Row 6 -->
+                <RowDefinition Height="Auto" />
+                <!-- Row 7 -->
+                <RowDefinition Height="20" />
+                <!-- Row 8 -->
+                <RowDefinition Height="Auto" />
+                <!-- Row 9 -->
+                <RowDefinition Height="20" />
+                <!-- Row 10 -->
+                <RowDefinition Height="Auto" />
+                <!-- Row 11 -->
+
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0" Text="Welcome" FontSize="Title" HorizontalOptions="Center"/>
+
+            <Label Grid.Row="1" x:Name="lblFullName" FontSize="Subtitle" HorizontalOptions="Center"/>
+
+            <Button Grid.Row="3" Text="Appointments" HorizontalOptions="Center" Clicked="Appointments_Clicked" 
+                    BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
+
+            <Button Grid.Row="5" Text="My Employee Profile" HorizontalOptions="Center" Clicked="MyEmployeeProfile_Clicked" 
+                    BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
+
+            <Button Grid.Row="7" Text="Reset Account" HorizontalOptions="Center" Clicked="MyUserProfile_Clicked" 
+                    BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
+
+            <Button Grid.Row="9" Text="Logout" HorizontalOptions="Center" Clicked="Logout_Clicked" 
+                    BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
+
+        </Grid>
+    </ContentPage.Content>
+    
+</ContentPage>

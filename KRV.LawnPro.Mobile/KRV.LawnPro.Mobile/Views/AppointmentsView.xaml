@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             x:Class="KRV.LawnPro.Mobile.Views.AppointmentsView"
+             xmlns:local="clr-namespace:KRV.LawnPro.Mobile.Custom">
+
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1.2" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="Green" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <!-- Column 0 -->
+                <ColumnDefinition Width="100" />
+                <!-- Column 1 -->
+                <ColumnDefinition Width="*" />
+                <!-- Column 2 -->
+                <ColumnDefinition Width="20" />
+                <!-- Column 3 -->
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5" />
+                <!-- Row 0 -->
+                <RowDefinition Height="40" />
+                <!-- Row 1 -->
+                <RowDefinition Height="20" />
+                <!-- Row 2 -->
+                <RowDefinition Height="Auto" />
+                <!-- Row 3 -->
+            </Grid.RowDefinitions>
+
+
+            <local:MyDatePicker x:Name="appointmentDatePicker"  Grid.Row="1" Grid.Column="2"
+                        IsVisible="False"
+                        Format="dddd - MM/dd/yyyy"
+                        FontSize="16"
+                        Unfocused="appointmentDatePicker_Unfocused"
+                        />
+
+            <StackLayout Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Horizontal">
+                <Button x:Name="btnDateFilter"  Text="Filter" Clicked="btnDateFilter_Clicked" 
+                        BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
+                <Button x:Name="btnClearFilter" Text="Clear Filter" Clicked="btnClearFilter_Clicked"
+                        BackgroundColor="Green" TextColor="White" CornerRadius="10"/>
+            </StackLayout>
+            <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="txtFilterState" FontSize="14" HorizontalTextAlignment="Center" />
+
+            <ListView x:Name="lstAppointmentList" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HasUnevenRows="True" IsPullToRefreshEnabled="True" ItemSelected="lstAppointmentList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
+                                    <Label Text="{Binding StatusDetail}" TextColor="{Binding StatusColor}" Font="Bold, 16"/>
+                                    <Label Text="{Binding StartDateTime}" Font="14"/>
+                                    <Label Text="{Binding AppointmentDetails}" Font="14"/>
+                                    <Label Text="{Binding ServiceDetails}" Font="14"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRV.LawnPro.Mobile.Views.MyUserProfileView">
+    
+    <ContentPage.Content>
+
+        <ScrollView>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1.2" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="Green" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <Grid.ColumnDefinitions>
+                    <!-- Fixed width (will truncate any words wider than the column)
+                         Auto = use as much space as needed for the widest word in the column
+                         * = use all remaining space (can be used to split the screen equally)
+                    -->
+                    <ColumnDefinition Width="20" />
+                    <!-- Column 0 -->
+                    <ColumnDefinition Width="Auto" />
+                    <!-- Column 1 -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Column 2 -->
+                    <ColumnDefinition Width="20" />
+                    <!-- Column 3 -->
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <!-- Row 0 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 1 -->
+                    <RowDefinition Height="0" />
+                    <!-- Row 2 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 3 -->
+                    <RowDefinition Height="0" />
+                    <!-- Row 4 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 5 -->
+                    <RowDefinition Height="0" />
+                    <!-- Row 6 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 7 -->
+                    <RowDefinition Height="0" />
+                    <!-- Row 8 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 9 -->
+                    <RowDefinition Height="0" />
+                    <!-- Row 10 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 11 -->
+                    <RowDefinition Height="0" />
+                    <!-- Row 12 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 13 -->
+                    <RowDefinition Height="0" />
+                    <!-- Row 14 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 15 -->
+                    <RowDefinition Height="5" />
+                    <!-- Row 16 -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Row 17 -->
+                </Grid.RowDefinitions>
+
+                <!-- Use row 0 and row 3 to control vertical spacing -->
+                <Label Grid.Row="1" Grid.Column="1" Text="First Name" VerticalOptions="Center"/>
+                <Label x:Name="txtFirstName" Grid.Row="1" Grid.Column="2" VerticalOptions="End"/>
+
+                <Label Grid.Row="3" Grid.Column="1" Text="Last Name" VerticalOptions="Center"/>
+                <Label x:Name="txtLastName" Grid.Row="3" Grid.Column="2" VerticalOptions="End"/>
+
+                <Label Grid.Row="5" Grid.Column="1" Text="User Name" VerticalOptions="Center"/>
+                <Entry x:Name="txtUserName" Grid.Row="5" Grid.Column="2" VerticalOptions="End"/>
+
+                <Label Grid.Row="7" Grid.Column="1" Text="Password" VerticalOptions="Center"/>
+                <Entry x:Name="txtUserPass" Grid.Row="7" Grid.Column="2" VerticalOptions="End" Placeholder="Enter Password" IsPassword="True"/>
+
+                <Label Grid.Row="9" Grid.Column="1" Text="Confirm Password" VerticalOptions="Center"/>
+                <Entry x:Name="txtUserPass2" Grid.Row="9" Grid.Column="2" VerticalOptions="End" Placeholder="Confirm Password" IsPassword="True"/>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="17" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Button x:Name="btnSave" Text="Save User Profile" HorizontalOptions="FillAndExpand" Clicked="SaveProfile_Clicked" 
+                            BackgroundColor="Green" 
+                            TextColor="White" 
+                            CornerRadius="10"/>
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+
+    </ContentPage.Content>
+    
+</ContentPage>
+    

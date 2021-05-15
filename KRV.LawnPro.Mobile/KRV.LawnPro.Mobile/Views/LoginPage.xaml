@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KRV.LawnPro.Mobile.Views.LoginPage">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="Green" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="15" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="1" Source="LawnPro" HorizontalOptions="Center"/>
+            
+            <Entry x:Name="txtUsername" Grid.Row="2" Grid.Column="1" Placeholder="Enter Username"/>
+            <Entry x:Name="txtPassword" Grid.Row="4" Grid.Column="1" Placeholder="Enter Password" IsPassword="True" />
+
+
+            <Button x:Name="btnLogin" Grid.Row="6" Grid.Column="1" Text="Login" FontSize="Large" Clicked="Login_Clicked" 
+                    BackgroundColor="Green" 
+                    TextColor="White" 
+                    CornerRadius="10"/>
+
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
