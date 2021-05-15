@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KRV.LawnPro.BL.Models\KRV.LawnPro.BL.Models.csproj" />
+    <ProjectReference Include="..\KRV.LawnPro.PL\KRV.LawnPro.PL.csproj" />
+    <ProjectReference Include="..\KRV.LawnPro.Reporting\KRV.LawnPro.Reporting.csproj" />
+  </ItemGroup>
+
+</Project>
