@@ -1,0 +1,168 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    html {
+        font-size: 16px;
+    }
+}
+
+fieldset {
+    margin: 0px 0px 20px 0px;
+    padding: 20px;
+    border: 1px solid grey !important;
+}
+
+legend {
+    width: auto;
+    font-weight: bold;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+
+.btn-primary {
+    color: #fff;
+    background-color: rgba(0, 102, 0, 1);
+    border-color: #1861ac;
+}
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+        color: #fff;
+        background-color: rgba(0, 102, 0, 1);
+        border-color: #d9f2d9;
+    }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: rgba(0, 102, 0, 1);
+    border-color: #1861ac;
+}
+
+.bg-dark {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 102, 0, 1) 35%);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.header {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(0, 102, 0, 1);
+}
+
+    .header h1, .header h2, .header h3, .header h4, .header h5 {
+        margin: 0px;
+        padding: 10px 10px 10px 10px;
+        color: white;
+        font-family: 'Trebuchet MS', 'Verdana';
+    }
+
+.main {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.navbar {
+    background-color: lightgray;
+    margin: 0px !important;
+}
+
+.content {
+    flex: 1;
+    overflow: auto;
+}
+
+.footer {
+    white-space: nowrap;
+    line-height: 50px; /* Vertically center the text there */
+}
+
+    .footer a {
+        padding-left: 0px;
+        padding-right: 0px;
+        color: lightgray;
+    }
+
+
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+table {
+    border: 1px solid royalblue;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: none !important;
+}
+
+
+table thead tr {
+    color: white;
+    background-color: rgba(0, 102, 0, 1);
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #d9f2d9;
+}
+
+
+table.dataTable tbody tr.odd {
+    background-color: #d9f2d9;
+}
+
+
+.body-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+}
+
+label {
+    font-weight: bold;
+}
+
+.mediumImage {
+    width: 300px;
+}
+
+.logoImage {
+    width: 200px;
+}
+

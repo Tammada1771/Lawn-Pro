@@ -1,0 +1,45 @@
+﻿@model KRV.LawnPro.BL.Models.Invoice
+
+<div class="ml-2 mr-2 pt-3 pb-3">
+
+    <div class="text-center">
+        <img src="~/images/LawnPro.png" class="logoImage" />
+        <h2>Lawn Pro Services LLC</h2>
+        <p>
+            1825 N Bluemound Dr<br />
+            Appleton, WI 54912<br />
+            (920) 555-5555
+        </p>
+
+    </div>
+
+    <div>
+        <h5>Customer:</h5>
+        <p>
+            @Model.CustomerFirstName @Model.CustomerLastName<br />
+            @Model.CustomerStreetAddress<br />
+            @Model.CustomerZip, @Model.CustomerState  @Model.CustomerZip
+        </p>
+    </div>
+
+    <div>
+        <table class="w-100 border-dark">
+            <thead>
+                <tr>
+                    <th class="pl-2">Date</th>
+                    <th>Service Description</th>
+                    <th>Technician</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="pl-2">@Html.DisplayFor(model => model.ServiceDate)</td>
+                    <td>@Html.DisplayFor(model => model.ServiceType)</td>
+                    <td>@Html.DisplayFor(model => model.EmployeeFullName)</td>
+                    <td>@Html.DisplayFor(model => model.InvoiceTotal)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

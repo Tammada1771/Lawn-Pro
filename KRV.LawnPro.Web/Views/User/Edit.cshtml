@@ -1,0 +1,179 @@
+﻿@model KRV.LawnPro.Web.ViewModel.CustomerUserViewModel
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<SelectListItem> States = new List<SelectListItem>()
+{
+        new SelectListItem() {Text="Alabama", Value="AL"},
+        new SelectListItem() { Text="Alaska", Value="AK"},
+        new SelectListItem() { Text="Arizona", Value="AZ"},
+        new SelectListItem() { Text="Arkansas", Value="AR"},
+        new SelectListItem() { Text="California", Value="CA"},
+        new SelectListItem() { Text="Colorado", Value="CO"},
+        new SelectListItem() { Text="Connecticut", Value="CT"},
+        new SelectListItem() { Text="District of Columbia", Value="DC"},
+        new SelectListItem() { Text="Delaware", Value="DE"},
+        new SelectListItem() { Text="Florida", Value="FL"},
+        new SelectListItem() { Text="Georgia", Value="GA"},
+        new SelectListItem() { Text="Hawaii", Value="HI"},
+        new SelectListItem() { Text="Idaho", Value="ID"},
+        new SelectListItem() { Text="Illinois", Value="IL"},
+        new SelectListItem() { Text="Indiana", Value="IN"},
+        new SelectListItem() { Text="Iowa", Value="IA"},
+        new SelectListItem() { Text="Kansas", Value="KS"},
+        new SelectListItem() { Text="Kentucky", Value="KY"},
+        new SelectListItem() { Text="Louisiana", Value="LA"},
+        new SelectListItem() { Text="Maine", Value="ME"},
+        new SelectListItem() { Text="Maryland", Value="MD"},
+        new SelectListItem() { Text="Massachusetts", Value="MA"},
+        new SelectListItem() { Text="Michigan", Value="MI"},
+        new SelectListItem() { Text="Minnesota", Value="MN"},
+        new SelectListItem() { Text="Mississippi", Value="MS"},
+        new SelectListItem() { Text="Missouri", Value="MO"},
+        new SelectListItem() { Text="Montana", Value="MT"},
+        new SelectListItem() { Text="Nebraska", Value="NE"},
+        new SelectListItem() { Text="Nevada", Value="NV"},
+        new SelectListItem() { Text="New Hampshire", Value="NH"},
+        new SelectListItem() { Text="New Jersey", Value="NJ"},
+        new SelectListItem() { Text="New Mexico", Value="NM"},
+        new SelectListItem() { Text="New York", Value="NY"},
+        new SelectListItem() { Text="North Carolina", Value="NC"},
+        new SelectListItem() { Text="North Dakota", Value="ND"},
+        new SelectListItem() { Text="Ohio", Value="OH"},
+        new SelectListItem() { Text="Oklahoma", Value="OK"},
+        new SelectListItem() { Text="Oregon", Value="OR"},
+        new SelectListItem() { Text="Pennsylvania", Value="PA"},
+        new SelectListItem() { Text="Rhode Island", Value="RI"},
+        new SelectListItem() { Text="South Carolina", Value="SC"},
+        new SelectListItem() { Text="South Dakota", Value="SD"},
+        new SelectListItem() { Text="Tennessee", Value="TN"},
+        new SelectListItem() { Text="Texas", Value="TX"},
+        new SelectListItem() { Text="Utah", Value="UT"},
+        new SelectListItem() { Text="Vermont", Value="VT"},
+        new SelectListItem() { Text="Virginia", Value="VA"},
+        new SelectListItem() { Text="Washington", Value="WA"},
+        new SelectListItem() { Text="West Virginia", Value="WV"},
+        new SelectListItem() { Text="Wisconsin", Value="WI"},
+        new SelectListItem() { Text="Wyoming", Value="WY"}
+    };
+
+
+}
+
+<div class="container-fluid">
+    <div class="ml-2 mr-2 pt-3 pb-3">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <fieldset class="box-border">
+                <legend class="box-border">Login</legend>
+
+                <input hidden asp-for="User.Id" class="form-control" />
+                <input hidden asp-for="Customer.Id" class="form-control" />
+                <input hidden asp-for="Customer.UserId" class="form-control" />
+
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label asp-for="User.UserName" class="control-label"></label>
+                        <input asp-for="User.UserName" class="form-control" />
+                        <span asp-validation-for="User.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="User.UserPass" class="control-label"></label>
+                        @Html.PasswordFor(model => model.User.UserPass, new { @class = "form-control" })
+                        <span asp-validation-for="User.UserPass" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="User.UserPass2" class="control-label"></label>
+                        @Html.PasswordFor(model => model.User.UserPass2, new { @class = "form-control" })
+                        <span asp-validation-for="User.UserPass2" class="text-danger"></span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label asp-for="User.FirstName" class="control-label"></label>
+                        <input asp-for="User.FirstName" class="form-control" />
+                        <span asp-validation-for="User.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="User.LastName" class="control-label"></label>
+                        <input asp-for="User.LastName" class="form-control" />
+                        <span asp-validation-for="User.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-12">
+                        <label asp-for="Customer.StreetAddress" class="control-label"></label>
+                        <input asp-for="Customer.StreetAddress" class="form-control" />
+                        <span asp-validation-for="Customer.StreetAddress" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-5">
+                        <label asp-for="Customer.City" class="control-label"></label>
+                        <input asp-for="Customer.City" class="form-control" />
+                        <span asp-validation-for="Customer.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-3">
+                        <label asp-for="Customer.State" class="control-label"></label>
+                        <select asp-for="Customer.State" class="form-control" asp-items="States"></select>
+                        <span asp-validation-for="Customer.State" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-4">
+                        <label asp-for="Customer.ZipCode" class="control-label"></label>
+                        <input asp-for="Customer.ZipCode" class="form-control" />
+                        <span asp-validation-for="Customer.ZipCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label asp-for="Customer.Email" class="control-label"></label>
+                        <input asp-for="Customer.Email" class="form-control" />
+                        <span asp-validation-for="Customer.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="Customer.Phone" class="control-label"></label>
+                        <input asp-for="Customer.Phone" class="form-control" />
+                        <span asp-validation-for="Customer.Phone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label asp-for="Customer.PropertySqFeet" class="control-label"></label>
+                        <input disabled asp-for="Customer.PropertySqFeet" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        @{
+                            if (Model.Customer.PropertySqFeet == 0)
+                            {
+                                <span class="text-danger">We will be visiting you soon to measure your property!</span>
+                            }
+                        }
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <input type="submit" value="Save My Profile" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<KRV.LawnPro.BL.Models.Appointment>
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="ml-2 mr-2 pt-3 pb-3">
+        <table id="appointments" class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartDateTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ServiceType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmployeeFullName)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServiceType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @{
+                            if (string.IsNullOrEmpty(item.EmployeeFullName))
+                            {
+                                <span>Scheduling in Progress...</span>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.EmployeeFullName)
+                            }
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        @{
+                            if (item.StartDateTime.Date > DateTime.Now.Date && (item.Status == "Scheduled" || item.Status == "Unscheduled"))
+                            {
+                                <a class="btn btn-primary btn-sm" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            }
+                        }
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript" class="init">
+    $.noConflict();
+
+    jQuery(document).ready(function ($) {
+
+        $(document).ready(function () {
+            $('#appointments').DataTable({
+                "lengthMenu": [[10, 15, 20, 25, -1], [10, 15, 20, 25, "All"]],
+                "columnDefs": [
+                    { "searchable": false, "targets": [4] },
+                    { "orderable": false, "targets": [4] }
+                ]
+            });
+        });
+
+    });
+
+
+</script>

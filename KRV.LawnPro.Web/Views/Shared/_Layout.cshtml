@@ -1,0 +1,139 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@using KRV.LawnPro.BL.Models;
+@using KRV.LawnPro.Web.Extensions;
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lawn Pro</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Lawn Pro</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            @{
+                                if (Authenticate.IsAuthenticated(Context))
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        @{
+                                            Guid userId = HttpContextAccessor.HttpContext.Session.GetObject<User>("user").Id;
+                                            <a class="nav-link text-light" asp-area="" asp-controller="User" asp-action="Edit" asp-route-id="@userId">My Profile</a>
+                                        }
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Appointment" asp-action="Index">My Appointments</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Invoice" asp-action="Index">My Invoices</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Appointment" asp-action="Create">Request Service</a>
+                                    </li>
+                                }
+                            }
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Info" asp-action="OurServices">Our Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Info" asp-action="ContactUs">Contact Us</a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav">
+                            @{
+                                if (Authenticate.IsAuthenticated(Context))
+                                {
+                                    var welcomeName = HttpContextAccessor.HttpContext.Session.GetObject<User>("user").WelcomeName;
+
+                                    if (!string.IsNullOrEmpty(welcomeName)) welcomeName = welcomeName.Replace("\"", "");
+                                    <li>
+                                        <span class="nav-link text-light ">Welcome @welcomeName!</span>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-light" asp-controller="User" asp-action="Logout">Logout</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="User" asp-action="Create">Sign Up Today!</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-light" asp-controller="User" asp-action="Login">Login</a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container content ">
+            <div class="row">
+                <div class="col-md-12 main rounded-top">
+
+                    @{ if (ViewBag.Title != "Home")
+                        {
+                            <div class="header rounded-top">
+                                <h4>@ViewBag.Title</h4>
+                            </div>
+                            <main role="main" class="border pb-3">
+                                <div class="ml-2 text-danger">@ViewBag.Error</div>
+                                <div class="ml-2 text-danger">@TempData["error"]</div>
+                                <div class="ml-2 text-info">@ViewBag.Info</div>
+                                @RenderBody()
+                            </main>
+                        }
+                        else
+                        {
+                            <main role="main" class="border-0 pb-3">
+                                <div class="ml-2 text-danger">@ViewBag.Error</div>
+                                <div class="ml-2 text-danger">@TempData["error"]</div>
+                                <div class="ml-2 text-info">@ViewBag.Info</div>
+                                @RenderBody()
+                            </main>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer class="border-top footer text-light bg-dark">
+            <div class="container">
+                &copy; 2021 - Lawn Pro LLC
+            </div>
+        </footer>
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

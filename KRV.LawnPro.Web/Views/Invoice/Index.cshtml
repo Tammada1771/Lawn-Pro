@@ -1,0 +1,81 @@
+﻿@model KRV.LawnPro.Web.Models.InvoiceModel
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="ml-2 mr-2 pt-3 pb-3">
+        <table id="invoices" class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Invoices[0].ServiceDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Invoices[0].ServiceType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Invoices[0].EmployeeFullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Invoices[0].Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Invoices[0].InvoiceTotal)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Invoices)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServiceDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServiceType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeFullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceTotal)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-primary btn-sm" asp-action="DetailsAsPDF" asp-route-id="@item.Id">Export to PDF</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <br>
+        <h3>Your oustanding balance is: @Model.InvoiceBalance.ToString("c2")</h3>
+    </div>
+</div>
+
+<script type="text/javascript" class="init">
+    $.noConflict();
+
+    jQuery(document).ready(function ($) {
+
+        $(document).ready(function () {
+            $('#invoices').DataTable({
+                "lengthMenu": [[10, 15, 20, 25, -1], [10, 15, 20, 25, "All"]],
+                "columnDefs": [
+                    { "searchable": false, "targets": [5] },
+                    { "orderable": false, "targets": [5] }
+                ]
+            });
+        });
+
+    });
+
+
+</script>

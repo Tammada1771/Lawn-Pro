@@ -1,0 +1,19 @@
+﻿@model KRV.LawnPro.BL.Models.Invoice
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+
+    <div><partial name="_InvoicePartial" model="Model" /></div>
+
+    <div class="ml-2">
+        <a class="btn btn-primary btn-sm" asp-action="Index">Back to List</a>
+    </div>
+
+</div>
+
+

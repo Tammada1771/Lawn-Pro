@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@using KRV.LawnPro.BL.Models;
+@using KRV.LawnPro.Web.Extensions;
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+<div class="container-fluid">
+    <div class="text-center">
+        <img src="~/images/LawnPro.png" width="75%" />
+        @{
+            if (Authenticate.IsAuthenticated(Context))
+            {
+                var welcomeName = HttpContextAccessor.HttpContext.Session.GetObject<User>("user").WelcomeName;
+
+                if (!string.IsNullOrEmpty(welcomeName))
+                {
+                    welcomeName = welcomeName.Replace("\"", "");
+                    <div>
+                        <p>Welcome @welcomeName!</p>
+                    </div>
+                }
+            }
+        }
+
+        <p>
+            Lawn Pro has been creating beautiful lawns that homeowners<br />can be proud of throughout the Fox Valley area since 1987.
+        </p>
+
+    </div>
+</div>
