@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="147e5c37-3bb6-4ca8-b2ee-99e9b4625edd" ChangeDateTime="04/03/2021 12:45:49">
+    <Property Name="ElementName" Value="[dbo].[tblCustomer].[PropertySize]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblCustomer]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PropertySqFt" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d4e2e3f5-60e1-40f7-b4e7-6cb719b2a613" ChangeDateTime="04/03/2021 13:02:05">
+    <Property Name="ElementName" Value="[dbo].[tblRate].[LawnSqFt]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblRate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Service" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="82bb64b3-8659-411c-9e9c-56d12afef5b8" ChangeDateTime="04/03/2021 13:02:22">
+    <Property Name="ElementName" Value="[dbo].[tblRate].[Cost]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblRate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CostPerSqFt" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="53272bba-ad1a-478e-baa3-693741f58847" ChangeDateTime="04/03/2021 14:17:47">
+    <Property Name="ElementName" Value="[dbo].[tblRate].[Service]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblRate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ServiceName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="67dcedf9-73c1-4737-aa3f-e1e30a0c3624" ChangeDateTime="04/03/2021 14:17:56">
+    <Property Name="ElementName" Value="[dbo].[tblRate].[ServiceName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblRate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Service" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1d982957-e783-4b72-b461-56f309b9ca45" ChangeDateTime="04/03/2021 14:20:30">
+    <Property Name="ElementName" Value="[dbo].[tblRate].[Service]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblRate]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Description" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5942c053-aadd-4289-8bc0-ce69e1549087" ChangeDateTime="04/03/2021 15:48:29">
+    <Property Name="ElementName" Value="[dbo].[tblAppointment].[Service]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblAppointment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ServiceId" />
+  </Operation>
+</Operations>
